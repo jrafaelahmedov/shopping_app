@@ -17,7 +17,7 @@ class ImageOpenContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: openContainer,
-      child:FruitDetailsItemTop(item: item,)
+      child:FruitDetailsItemTop(item,)
     );
   }
 }

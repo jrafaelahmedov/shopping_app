@@ -162,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                     crossAxisSpacing: 15),
                             itemBuilder: (BuildContext context, int index) {
                               return GestureDetector(
-                                child: Container(child: items[index]),
+                                child: items[index],
                                 onTap: () {
                                   // Navigator.push(
                                   //     context,
@@ -173,10 +173,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                   //         arguments: items[index],
                                   //       ),
                                   //     ));
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(builder: (context) =>  FruitsDetails(item: items[index],)),
-                                  // );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) =>  FruitsDetails(item: items[index],)),
+                                  );
                                   // Navigator.of(context).push(
                                   //   PageRouteBuilder(
                                   //     transitionDuration:

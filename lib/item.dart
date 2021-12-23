@@ -26,7 +26,6 @@ class FruitsItem extends StatelessWidget {
     }
 
     return FutureBuilder(
-      initialData: Colors.red.withOpacity(0.4),
       future: getMainColorImage(),
       builder: (BuildContext context, AsyncSnapshot<Color> snapshot) {
         return Container(
@@ -37,9 +36,12 @@ class FruitsItem extends StatelessWidget {
               const EdgeInsets.only(top: 10, left: 10, right: 5, bottom: 10),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Image.asset(image, height: 80, fit: BoxFit.fitHeight),
+              Hero(
+                tag: this,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Image.asset(image, height: 80, fit: BoxFit.fitHeight),
+                ),
               ),
               const Spacer(),
               Padding(

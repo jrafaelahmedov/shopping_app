@@ -64,9 +64,7 @@ class FruitsDetails extends StatelessWidget {
           ),
           body: Padding(
             padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: FruitDetailsItemTop(
-              item: item,
-            ),
+            child: FruitDetailsItemTop(item),
           ),
         ),
       ),

@@ -1,21 +1,40 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'color_generator.dart';
 import 'item.dart';
 import 'main.dart';
 
-class FruitDetailsItemTop extends StatelessWidget {
-  const FruitDetailsItemTop({
-    Key? key,
-    required this.item,
-  }) : super(key: key);
+class FruitDetailsItemTop extends StatefulWidget {
+  // const FruitDetailsItemTop({
+  //   Key? key,
+  //   required this.item,
+  // }) : super(key: key);
 
-  final FruitsItem item;
+  late FruitsItem _item;
+
+  FruitDetailsItemTop(FruitsItem item) {
+    _item = item;
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return FruitDetailsItemTopState(_item);
+  }
+
+}
+
+class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
+
+  late FruitsItem _item;
+
+  FruitDetailsItemTopState(FruitsItem item){
+    _item = item;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +42,12 @@ class FruitDetailsItemTop extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     Future<Color> getMainColorImage() async {
-      var imageBytes = (await rootBundle.load(item.image)).buffer.asUint8List();
+      var imageBytes = (await rootBundle.load(_item.image)).buffer.asUint8List();
 
       return getAverageColor(sortColors(extractPixelsColors(imageBytes)));
     }
 
     return FutureBuilder(
-      initialData: Colors.red.withOpacity(0.4),
       future: getMainColorImage(),
       builder: (BuildContext context, AsyncSnapshot<Color> snapshot) {
         return SingleChildScrollView(
@@ -43,12 +61,15 @@ class FruitDetailsItemTop extends StatelessWidget {
                     color: snapshot.data?.withOpacity(0.5)),
                 padding: const EdgeInsets.only(
                     top: 10, left: 10, right: 5, bottom: 10),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15, top: 50),
-                  child: Image.asset(item.image,
-                      height: height * 0.5,
-                      width: width * 0.8,
-                      fit: BoxFit.scaleDown),
+                child: Hero(
+                  tag: _item,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15, top: 50),
+                    child: Image.asset(_item.image,
+                        height: height * 0.5,
+                        width: width * 0.8,
+                        fit: BoxFit.scaleDown),
+                  ),
                 ),
               ),
               Row(
@@ -56,7 +77,7 @@ class FruitDetailsItemTop extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 12.0, left: 10),
                     child: Text(
-                      item.title,
+                      _item.title,
                       style: const TextStyle(
                           fontSize: 30, fontWeight: FontWeight.bold),
                     ),
