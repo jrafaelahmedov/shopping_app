@@ -52,7 +52,7 @@ class FruitsDetails extends StatelessWidget {
                     children: <Widget>[
                       IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(Icons.favorite, color: parseColor("#1EBF8E")),
+                        icon: Icon(Icons.favorite, color: parseColor("#1EBF8E"),),
                       ),
                       // Your widgets here
                     ],
