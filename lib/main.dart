@@ -33,18 +33,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late TabController _tabController;
   late List<FruitsItem> items = [
-    FruitsItem(title: "Apple", image: 'assets/images/apple_image.png'),
-    FruitsItem(title: "Orange", image: 'assets/images/orange_image.png'),
-    FruitsItem(title: "Mango", image: 'assets/images/mango_image.png'),
-    FruitsItem(title: "Watermelon", image: 'assets/images/watermelon.png'),
-    FruitsItem(title: "Apple", image: 'assets/images/apple_image.png'),
-    FruitsItem(title: "Orange", image: 'assets/images/orange_image.png'),
-    FruitsItem(title: "Mango", image: 'assets/images/mango_image.png'),
-    FruitsItem(title: "Watermelon", image: 'assets/images/watermelon.png'),
-    FruitsItem(title: "Apple", image: 'assets/images/apple_image.png'),
-    FruitsItem(title: "Orange", image: 'assets/images/orange_image.png'),
-    FruitsItem(title: "Mango", image: 'assets/images/mango_image.png'),
-    FruitsItem(title: "Watermelon", image: 'assets/images/watermelon.png')
+    const FruitsItem(title: "Apple", image: 'assets/images/apple_image.png'),
+    const FruitsItem(title: "Orange", image: 'assets/images/orange_image.png'),
+    const FruitsItem(title: "Mango", image: 'assets/images/mango_image.png'),
+    const FruitsItem(title: "Watermelon", image: 'assets/images/watermelon.png'),
+    const FruitsItem(title: "Apple", image: 'assets/images/apple_image.png'),
+    const FruitsItem(title: "Orange", image: 'assets/images/orange_image.png'),
+    const FruitsItem(title: "Mango", image: 'assets/images/mango_image.png'),
+    const FruitsItem(title: "Watermelon", image: 'assets/images/watermelon.png'),
+    const FruitsItem(title: "Apple", image: 'assets/images/apple_image.png'),
+    const FruitsItem(title: "Orange", image: 'assets/images/orange_image.png'),
+    const FruitsItem(title: "Mango", image: 'assets/images/mango_image.png'),
+    const FruitsItem(title: "Watermelon", image: 'assets/images/watermelon.png')
   ];
 
   @override
@@ -164,62 +164,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               return GestureDetector(
                                 child: items[index],
                                 onTap: () {
-                                  // Navigator.push(
-                                  //     context,
-                                  //     PageRouteBuilder(
-                                  //       transitionDuration: const Duration(milliseconds:1000),
-                                  //       pageBuilder: (_, __, ___) => FruitsDetails(item: items[index]),
-                                  //       settings: RouteSettings(
-                                  //         arguments: items[index],
-                                  //       ),
-                                  //     ));
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) =>  FruitsDetails(item: items[index],)),
                                   );
-                                  // Navigator.of(context).push(
-                                  //   PageRouteBuilder(
-                                  //     transitionDuration:
-                                  //         Duration(milliseconds: 1000),
-                                  //        pageBuilder: (BuildContext context,
-                                  //         Animation<double> animation,
-                                  //         Animation<double>
-                                  //             secondaryAnimation) {
-                                  //       return FruitsDetails(item: items[index]);
-                                  //     },
-                                  //     transitionsBuilder: (BuildContext context,
-                                  //         Animation<double> animation,
-                                  //         Animation<double> secondaryAnimation,
-                                  //         Widget child) {
-                                  //       return Align(
-                                  //         child: FadeTransition(
-                                  //           opacity: animation,
-                                  //           child: child,
-                                  //         ),
-                                  //       );
-                                  //     },
-                                  //   ),
-                                  // );
-                                  print(index);
                                 },
                               );
                             }),
-                        // GridView.count(
-                        //   shrinkWrap: true,
-                        //   primary: true,
-                        //   physics: const ScrollPhysics(),
-                        //   crossAxisCount:
-                        //       MediaQuery.of(context).orientation ==
-                        //               Orientation.landscape
-                        //           ? 3
-                        //           : 2,
-                        //   crossAxisSpacing: 15,
-                        //   mainAxisSpacing: 15,
-                        //   childAspectRatio: 2.2 / 3,
-                        //   children: <Widget>[
-                        //     for (int i = 0; i < items.length; i++) items[i],
-                        //   ],
-                        // ),
                       ]),
                 ),
               ],

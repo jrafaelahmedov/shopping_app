@@ -15,7 +15,7 @@ class FruitDetailsItemTop extends StatefulWidget {
 
   late FruitsItem _item;
 
-  FruitDetailsItemTop(FruitsItem item) {
+  FruitDetailsItemTop(FruitsItem item, {Key? key}) : super(key: key) {
     _item = item;
   }
 
@@ -35,7 +35,6 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
     _item = item;
   }
 
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -43,7 +42,6 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
 
     Future<Color> getMainColorImage() async {
       var imageBytes = (await rootBundle.load(_item.image)).buffer.asUint8List();
-
       return getAverageColor(sortColors(extractPixelsColors(imageBytes)));
     }
 
@@ -102,7 +100,7 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
                                 fontSize: 20,
                                 color: parseColor("#1EBF8E"),
                                 fontWeight: FontWeight.bold,
-                              )),
+                              ),),
                         ],
                       ),
                     ),
@@ -157,7 +155,7 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12),
                             ),
-                            Text(
+                            const Text(
                               "46",
                               style: TextStyle(
                                   color: Colors.black,
@@ -187,7 +185,7 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12),
                             ),
-                            Text(
+                            const Text(
                               "0.5 g",
                               style: TextStyle(
                                   color: Colors.black,
@@ -217,7 +215,7 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12),
                             ),
-                            Text(
+                            const Text(
                               "10 g",
                               style: TextStyle(
                                   color: Colors.black,
@@ -247,7 +245,7 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12),
                             ),
-                            Text(
+                            const Text(
                               "1.5 g",
                               style: TextStyle(
                                   color: Colors.black,
@@ -267,15 +265,15 @@ class FruitDetailsItemTopState extends State<FruitDetailsItemTop> {
                   width: width,
                   height: 50,
                   child: ElevatedButton(
-                    child: Text('Add to Bag'),
+                    child: const Text('Add to Bag'),
                     onPressed: () {},
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(parseColor("#1ebf8e")),
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.0),
-                                side: BorderSide(color: Colors.transparent),
-                            )
+                                side: const BorderSide(color: Colors.transparent),
+                            ),
                         ),
                     ),
                   ),

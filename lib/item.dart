@@ -64,7 +64,7 @@ class FruitsItem extends StatelessWidget {
                 children: [
                   Container(
                     // color: Colors.black,
-                    margin: EdgeInsets.only(right: 10),
+                    margin: const EdgeInsets.only(right: 10),
                     padding: EdgeInsets.zero,
                     child: Row(
                       children: [
@@ -88,7 +88,7 @@ class FruitsItem extends StatelessWidget {
                                     color: Colors.amber,
                                   ),
                                   onRatingUpdate: (rating) {
-                                    print(rating);
+
                                   },
                                 ),
                               ),
@@ -107,7 +107,7 @@ class FruitsItem extends StatelessWidget {
                                         style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,
-                                        )),
+                                        ),),
                                   ],
                                 ),
                               ),
